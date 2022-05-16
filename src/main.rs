@@ -74,7 +74,7 @@ impl Shop {
     /// Get the price of the most expensive card in the shop
     fn most_expensive(&self) -> u32 {
         let mut highest_price: u32 = 0;
-        for current_price in cards{
+        for current_price in &self.cards{
             if current_price.price > highest_price{
                 highest_price = current_price.price;   
             }     
@@ -84,8 +84,8 @@ impl Shop {
 
     /// Get the total damage of all cards in the shop
     fn total_damage(&self) -> u32 {
-        let mut total_attack ;
-        for current_damage in cards{           
+        let mut total_attack = 0;
+        for current_damage in &self.cards{           
             total_attack = total_attack + current_damage.damage;               
         }
         return total_attack;
@@ -94,7 +94,7 @@ impl Shop {
     /// Get the total health of all cards in the shop
     fn total_health(&self) -> u32 {
         let mut total_hp: u32 = 0;
-        for current_hp in cards{           
+        for current_hp in &self.cards{           
             total_hp = total_hp + current_hp.health;               
         }
         return total_hp;
