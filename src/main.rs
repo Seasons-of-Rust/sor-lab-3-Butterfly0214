@@ -2,26 +2,25 @@ use core::time;
 use std::thread;
 
 fn main() {
-
     let comic_book_shoppe = Shop {
-         cards: [
-             Card {
-                 price: 10,
-                 health: 10,
-                 damage: 10,
-             },
-             Card {
-                 price: 20,
-                 health: 20,
-                 damage: 20,
-             },
-             Card {
-                 price: 30,
-                 health: 30,
-                 damage: 30,
-             },
-         ],
-     };
+        cards: [
+            Card {
+                price: 10,
+                health: 10,
+                damage: 10,
+            },
+            Card {
+                price: 20,
+                health: 20,
+                damage: 20,
+            },
+            Card {
+                price: 30,
+                health: 30,
+                damage: 30,
+            },
+        ],
+    };
 
     println!("Welcome to The Comic Book Shoppe!");
     println!("We've got three cards for you to check out.");
@@ -67,17 +66,16 @@ fn main() {
 /// A Shop is a collection of 3 cards.
 struct Shop {
     cards: [Card; 3],
-    
 }
 
 impl Shop {
     /// Get the price of the most expensive card in the shop
     fn most_expensive(&self) -> u32 {
         let mut highest_price: u32 = 0;
-        for current_price in &self.cards{
-            if current_price.price > highest_price{
-                highest_price = current_price.price;   
-            }     
+        for current_price in &self.cards {
+            if current_price.price > highest_price {
+                highest_price = current_price.price;
+            }
         }
         return highest_price;
     }
@@ -85,8 +83,8 @@ impl Shop {
     /// Get the total damage of all cards in the shop
     fn total_damage(&self) -> u32 {
         let mut total_attack = 0;
-        for current_damage in &self.cards{           
-            total_attack = total_attack + current_damage.damage;               
+        for current_damage in &self.cards {
+            total_attack = total_attack + current_damage.damage;
         }
         return total_attack;
     }
@@ -94,8 +92,8 @@ impl Shop {
     /// Get the total health of all cards in the shop
     fn total_health(&self) -> u32 {
         let mut total_hp: u32 = 0;
-        for current_hp in &self.cards{           
-            total_hp = total_hp + current_hp.health;               
+        for current_hp in &self.cards {
+            total_hp = total_hp + current_hp.health;
         }
         return total_hp;
     }
@@ -104,9 +102,8 @@ impl Shop {
 /// A Card is a card stores a price, health, and damage.
 struct Card {
     price: u32,
-    health: u32, 
+    health: u32,
     damage: u32,
-
 }
 
 #[cfg(test)]
